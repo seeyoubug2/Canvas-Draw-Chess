@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas绘图_象棋棋盘</title>
+	</head>
+
+	<body>
+		<canvas id="canvas1" width="805" height="905">不支持Canvas</canvas>
+		<script type="text/javascript">
+			//棋盘外框
+			var canvas1 = document.getElementById("canvas1");
+			var ctx = canvas1.getContext("2d");
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "brown";
+			ctx.strokeRect(3, 3, 800, 900)
+				//此方法用来画棋盘线
+			function LineDrawing(mx, my, lx, ly) {
+				ctx.beginPath();
+				ctx.moveTo(mx, my);
+				ctx.lineTo(lx, ly);
+				ctx.stroke();
+			};
+			//棋盘列上半部分
+			ctx.lineWidth = 2;
+			LineDrawing(100, 5, 100, 400);
+			LineDrawing(200, 5, 200, 400);
+			LineDrawing(300, 5, 300, 400);
+			//斜线
+			LineDrawing(300, 5, 500, 200);
+			LineDrawing(400, 5, 400, 400);
+			LineDrawing(500, 5, 500, 400);
+			//反斜线
+			LineDrawing(500, 5, 300, 200);
+			LineDrawing(600, 5, 600, 400);
+			LineDrawing(700, 5, 700, 400);
+			LineDrawing(100, 5, 100, 400);
+			LineDrawing(100, 5, 100, 400);
+
+			//棋盘列下半部分
+			LineDrawing(100, 500, 100, 900);
+			LineDrawing(200, 500, 200, 900);
+			LineDrawing(300, 500, 300, 900);
+			//斜线
+			LineDrawing(300, 900, 500, 700);
+			LineDrawing(400, 500, 400, 900);
+			LineDrawing(500, 500, 500, 900);
+			//反斜线
+			LineDrawing(500, 900, 300, 700);
+			LineDrawing(600, 500, 600, 900);
+			LineDrawing(700, 500, 700, 900);
+			//棋盘行
+			LineDrawing(5, 100, 800, 100);
+			LineDrawing(5, 200, 800, 200);
+			LineDrawing(5, 300, 800, 300);
+			LineDrawing(5, 400, 800, 400);
+			LineDrawing(5, 500, 800, 500);
+			LineDrawing(5, 600, 800, 600);
+			LineDrawing(5, 700, 800, 700);
+			LineDrawing(5, 800, 800, 800);
+
+			//中心点一（100,200）
+			//左上
+			LineDrawing(90, 170, 90, 190);
+			LineDrawing(90, 190, 70, 190);
+			//右上
+			LineDrawing(110, 170, 110, 190);
+			LineDrawing(110, 190, 130, 190);
+			//左下
+			LineDrawing(90, 230, 90, 210);
+			LineDrawing(90, 210, 70, 210);
+			//右下
+			LineDrawing(110, 230, 110, 210);
+			LineDrawing(110, 210, 130, 210);
+			//中心点二（700,200）
+			//左上
+			LineDrawing(690, 170, 690, 190);
+			LineDrawing(690, 190, 670, 190);
+			//右上
+			LineDrawing(710, 170, 710, 190);
+			LineDrawing(710, 190, 730, 190);
+			//左下
+			LineDrawing(690, 230, 690, 210);
+			LineDrawing(690, 210, 670, 210);
+			//右下
+			LineDrawing(710, 230, 710, 210);
+			LineDrawing(710, 210, 730, 210);
+			//中心点三（0,300）
+			//右上
+			LineDrawing(20, 270, 20, 290);
+			LineDrawing(20, 290, 40, 290);
+			//右下
+			LineDrawing(20, 330, 20, 310);
+			LineDrawing(20, 310, 40, 310);
+			//中心点四（200,300）
+			//左上
+			LineDrawing(190, 270, 190, 290);
+			LineDrawing(190, 290, 170, 290);
+			//右上
+			LineDrawing(210, 270, 210, 290);
+			LineDrawing(210, 290, 230, 290);
+			//左下
+			LineDrawing(190, 330, 190, 310);
+			LineDrawing(190, 310, 170, 310);
+			//右下
+			LineDrawing(210, 330, 210, 310);
+			LineDrawing(210, 310, 230, 310);
+			//中心点五（400,300）
+			//左上
+			LineDrawing(390, 270, 390, 290);
+			LineDrawing(390, 290, 370, 290);
+			//右上
+			LineDrawing(410, 270, 410, 290);
+			LineDrawing(410, 290, 430, 290);
+			//左下
+			LineDrawing(390, 330, 390, 310);
+			LineDrawing(390, 310, 370, 310);
+			//右下
+			LineDrawing(410, 330, 410, 310);
+			LineDrawing(410, 310, 430, 310);
+			//中心点六（600,300）
+			//左上
+			LineDrawing(590, 270, 590, 290);
+			LineDrawing(590, 290, 570, 290);
+			//右上
+			LineDrawing(610, 270, 610, 290);
+			LineDrawing(610, 290, 630, 290);
+			//左下
+			LineDrawing(590, 330, 590, 310);
+			LineDrawing(590, 310, 570, 310);
+			//右下
+			LineDrawing(610, 330, 610, 310);
+			LineDrawing(610, 310, 630, 310);
+			//中心点七（800,300）
+			//左上
+			LineDrawing(790, 270, 790, 290);
+			LineDrawing(790, 290, 770, 290);
+			//左下
+			LineDrawing(790, 330, 790, 310);
+			LineDrawing(790, 310, 770, 310);
+			//中心点八——对应中心点七（800,600）
+			//左上
+			LineDrawing(790, 570, 790, 590);
+			LineDrawing(790, 590, 770, 590);
+			//左下
+			LineDrawing(790, 630, 790, 610);
+			LineDrawing(790, 610, 770, 610);
+			//中心点九——对应中心点六（600,600）
+			//左上
+			LineDrawing(590, 570, 590, 590);
+			LineDrawing(590, 590, 570, 590);
+			//右上
+			LineDrawing(610, 570, 610, 590);
+			LineDrawing(610, 590, 630, 590);
+			//左下
+			LineDrawing(590, 630, 590, 610);
+			LineDrawing(590, 610, 570, 610);
+			//右下
+			LineDrawing(610, 630, 610, 610);
+			LineDrawing(610, 610, 630, 610);
+			//中心点十——对应中心点五（400,600）
+			//左上
+			LineDrawing(390, 570, 390, 590);
+			LineDrawing(390, 590, 370, 590);
+			//右上
+			LineDrawing(410, 570, 410, 590);
+			LineDrawing(410, 590, 430, 590);
+			//左下
+			LineDrawing(390, 630, 390, 610);
+			LineDrawing(390, 610, 370, 610);
+			//右下
+			LineDrawing(410, 630, 410, 610);
+			LineDrawing(410, 610, 430, 610);
+			//中心点十一——对应中心点四（200,600）
+			//左上
+			LineDrawing(190, 570, 190, 590);
+			LineDrawing(190, 590, 170, 590);
+			//右上
+			LineDrawing(210, 570, 210, 590);
+			LineDrawing(210, 590, 230, 590);
+			//左下
+			LineDrawing(190, 630, 190, 610);
+			LineDrawing(190, 610, 170, 610);
+			//右下
+			LineDrawing(210, 630, 210, 610);
+			LineDrawing(210, 610, 230, 610);
+			//中心点十二——对应中心点三（0,600）
+			//右上
+			LineDrawing(20, 570, 20, 590);
+			LineDrawing(20, 590, 40, 590);
+			//右下
+			LineDrawing(20, 630, 20, 610);
+			LineDrawing(20, 610, 40, 610);
+			//中心点十三——对应中心点二（700,500）
+			//左上
+			LineDrawing(690, 670, 690, 690);
+			LineDrawing(690, 690, 670, 690);
+			//右上
+			LineDrawing(710, 670, 710, 690);
+			LineDrawing(710, 690, 730, 690);
+			//左下
+			LineDrawing(690, 730, 690, 710);
+			LineDrawing(690, 710, 670, 710);
+			//右下
+			LineDrawing(710, 730, 710, 710);
+			LineDrawing(710, 710, 730, 710);
+			//中心点十四——对应中心点一（100,500）
+			//左上
+			LineDrawing(90, 670, 90, 690);
+			LineDrawing(90, 690, 70, 690);
+			//右上
+			LineDrawing(110, 670, 110, 690);
+			LineDrawing(110, 690, 130, 690);
+			//左下
+			LineDrawing(90, 730, 90, 710);
+			LineDrawing(90, 710, 70, 710);
+			//右下
+			LineDrawing(110, 730, 110, 710);
+			LineDrawing(110, 710, 130, 710);
+			//字体填充：楚河 汉界	
+			//设置线宽
+			ctx.lineWidth = 1;
+			//绘制文字
+			ctx.font = "60px microsoft yahei";
+			ctx.save();//保存点
+			//将坐标中心作为起启点
+			ctx.translate(canvas1.width / 2, canvas1.height / 2);
+			var radian = Math.PI / 2; // 弧度制
+			ctx.rotate(radian); // 旋转画布绘制刻度
+			//填充
+			ctx.fillText("楚", -30, -270);
+			ctx.fillText("河", -30, -150);
+			ctx.restore();//恢复到保存点
+			ctx.save();
+			//将坐标中心作为起启点
+			ctx.translate(canvas1.width / 2, canvas1.height / 2);
+			var radian = Math.PI / -2; 
+			ctx.rotate(radian); 
+			ctx.fillText("汉", -30, -270);
+			ctx.fillText("界", -30, -150);
+			ctx.restore();
+		</script>
+	</body>
+</html>

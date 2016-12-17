@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas绘图_象棋棋盘</title>
+	</head>
+
+	<body>
+		<canvas id="canvas1" width="805" height="905">不支持Canvas</canvas>
+		<script type="text/javascript">
+			//棋盘外框
+			var canvas1 = document.getElementById("canvas1");
+			var ctx = canvas1.getContext("2d");
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "brown";
+			ctx.strokeRect(3, 3, 800, 900)
+
+			//此方法用来画棋盘线
+			function LineDrawing(mx, my, lx, ly) {
+				ctx.beginPath();
+				ctx.moveTo(mx, my);
+				ctx.lineTo(lx, ly);
+				ctx.stroke();
+			};
+
+			//棋盘行
+			function row() {
+				for(var i = 100; i <= 800; i += 100) {
+					ctx.beginPath();
+					ctx.moveTo(5, i);
+					ctx.lineTo(800, i);
+					ctx.stroke();
+				}
+			}
+			row();
+			//棋盘列
+			function cols() {
+				for(var i = 100; i <= 700; i += 100) {
+					ctx.beginPath();
+					ctx.moveTo(i, 5);
+					ctx.lineTo(i, 900);
+					ctx.stroke();
+				}
+				//清除指定的矩形区域
+				ctx.clearRect(5, 402, 795, 95);
+				//斜线
+				LineDrawing(300, 5, 500, 200);
+				LineDrawing(300, 705, 500, 900);
+				//反斜线
+				LineDrawing(500, 5, 300, 200);
+				LineDrawing(500, 705, 300, 900);
+			}
+			cols();
+
+			function center(x, y) {
+				//中心点一（100,200）
+				//左上
+				LineDrawing(x - 10, y - 30, x - 10, y - 10);
+				LineDrawing(x - 10, y - 10, x - 30, y - 10);
+				//右上
+				LineDrawing(x + 10, y - 30, x + 10, y - 10);
+				LineDrawing(x + 10, y - 10, x + 30, y - 10);
+				//左下
+				LineDrawing(x - 10, y + 30, x - 10, y + 10);
+				LineDrawing(x - 10, y + 10, x - 30, y + 10);
+				//右下
+				LineDrawing(x + 10, y + 30, x + 10, y + 10);
+				LineDrawing(x + 10, y + 10, x + 30, y + 10);
+			}
+
+			//中心点一（100,200）
+			center(100, 200);
+			//中心点二（700,200）
+			center(700, 200);
+			//中心点三（5,300）
+			center(5, 300);
+			//中心点四（200,300）
+			center(200, 300);
+			//中心点五（400,300）
+			center(400, 300);
+			//中心点六（600,300）
+			center(600, 300);
+			//中心点七（800,300）
+			center(800, 300);
+			//中心点八（800,600）
+			center(800, 600);
+			//中心点九（600,600）
+			center(600, 600);
+			//中心点十（400,600）
+			center(400, 600);
+			//中心点十一（200,600）
+			center(200, 600);
+			//中心点十二（5,600）
+			center(5, 600);
+			//中心点十三（700,700）
+			center(700, 700);
+			//中心点十四（100,700）
+			center(100, 700);
+			//字体填充：楚河 汉界	
+			//设置线宽
+			ctx.lineWidth = 1;
+			//绘制文字
+			ctx.font = "60px microsoft yahei";
+			ctx.save(); //保存点
+			//将坐标中心作为起启点
+			ctx.translate(canvas1.width / 2, canvas1.height / 2);
+			var radian = Math.PI / 2; // 弧度制
+			ctx.rotate(radian); // 旋转画布绘制刻度
+			//填充
+			ctx.fillText("楚", -30, -270);
+			ctx.fillText("河", -30, -150);
+			ctx.restore(); //恢复到保存点
+			ctx.save();
+			//将坐标中心作为起启点
+			ctx.translate(canvas1.width / 2, canvas1.height / 2);
+			var radian = Math.PI / -2; 
+			ctx.rotate(radian); // 旋转画布绘制刻度
+			ctx.fillText("汉", -30, -270);
+			ctx.fillText("界", -30, -150);
+			ctx.restore();
+		</script>
+	</body>
+
+</html>
